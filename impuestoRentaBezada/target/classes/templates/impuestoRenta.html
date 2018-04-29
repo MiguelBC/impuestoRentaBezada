@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Impuesto Quinta Categoría</title>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h2>Proyeccion</h2>
+        <table class="table">
+            <tr>
+                <td>Proyección de ingresos brutos anuales:</td>
+                <td>S/.</td>
+                <td th:text="${sueldo.bruto_total}"></td>
+            </tr>
+
+            <tr>
+                <td>Monto de 7 UIT descontable</td>
+                <td>S/.</td>
+                <td th:text="${sueldo.uit_descontable}"></td>
+            </tr>
+
+            <tr>
+                <td>Renta neta gravable de impuesto de quinta</td>
+                <td>S/.</td>
+                <td th:text="${sueldo.renta_grabable}"></td>
+            </tr>
+        </table>
+    <br/>
+
+        <table class="table">
+            <tr>
+                <td>Retención Mensual aproximada que se realiza al trabajador:</td>
+                <td th:text="${sueldo.retencion_mensual}"></td>
+            </tr>
+
+            <tr>
+                <td>Unidad Impositiva Tributaria que se realiza al trabajdor:</td>
+                <td th:text="${sueldo.uit}"></td>
+            </tr>
+        </table>
+
+    <br/>
+
+        <table class="table">
+            <tr>
+                <td>ESCALA UIT</td>
+                <td>Tasas</td>
+                <td>Máximos afecto en S/.</td>
+                <td>Monto afecto en S/.</td>
+                <td>Impuesto en S/.</td>
+            </tr>
+
+            <tr>
+                <td>Hasta 5 UIT</td>
+                <td>8%</td>
+                <td  th:text="${sueldo.max_5}"></td>
+                <td  th:text="${sueldo.afecto_5}"></td>
+                <td  th:text="${sueldo.imp_5}"></td>
+            </tr>
+
+            <tr>
+                <td>Mas de 5 UIT hasta 20 UIT</td>
+                <td>14%</td>
+                <td th:text="${sueldo.max_20}"></td>
+                <td th:text="${sueldo.afecto_20}"></td>
+                <td th:text="${sueldo.imp_20}"></td>
+            </tr>
+
+            <tr>
+                <td>Mas de 20 UIT hasta 35 UIT</td>
+                <td>17%</td>
+                <td th:text="${sueldo.max_35}"></td>
+                <td th:text="${sueldo.afecto_35}"></td>
+                <td th:text="${sueldo.imp_35}"></td>
+            </tr>
+
+            <tr>
+                <td>Mas de 35 UIT hasta 45 UIT</td>
+                <td>20%</td>
+                <td th:text="${sueldo.max_45}"></td>
+                <td th:text="${sueldo.afecto_45}"></td>
+                <td th:text="${sueldo.imp_45}"></td>
+            </tr>
+
+            <tr>
+                <td>Mas de 45</td>
+                <td>30%</td>
+                <td th:text="${sueldo.max_46}"></td>
+                <td th:text="${sueldo.afecto_46}"></td>
+                <td th:text="${sueldo.imp_46}"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Inpuesto a la Renta a pagar por el año en curso</td>
+                <td th:text="${sueldo.total_afecto}"></td>
+                <td th:text="${sueldo.impuesto_total}"></td>
+            </tr>
+        </table>
+
+    <br/>
+    <a href="/sueldo/list">Lista de Proyecciones</a>
+</div>
+</body>
+</html>

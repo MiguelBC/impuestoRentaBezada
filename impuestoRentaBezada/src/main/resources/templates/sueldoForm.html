@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculando Impuesto a la Renta</title>
+
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Impuestos Quinta Categoria</h1>
+    <form action="#" th:action="@{/sueldo/new}" th:object="${sueldo}" method="post">
+        <table class="table">
+
+            <tr>
+                <td>DNI:</td>
+                <td><input type="text" th:field="*{dni}"/></td>
+                <td th:if="${#fields.hasErrors('dni')}"
+                    th:errors="*{dni}">Dni Error</td>
+            </tr>
+
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" th:field="*{nombre}"/></td>
+                <td th:if="${#fields.hasErrors('nombre')}"
+                    th:errors="*{nombre}">Nombre Error</td>
+            </tr>
+
+            <tr>
+                <td>Sueldo:</td>
+                <td><input type="text" th:field="*{sueldo}"/></td>
+                <td th:if="${#fields.hasErrors('sueldo')}"
+                    th:errors="*{sueldo}">Sueldo Error</td>
+            </tr>
+
+            <tr>
+                <td>UIT:</td>
+                <td><input type="text" th:field="*{uit}"/></td>
+                <td th:if="${#fields.hasErrors('uit')}"
+                    th:errors="*{uit}">Rate Error</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                <label class="radio-inline"><input type="radio" th:field="*{tipo}" th:value="Dependiente" name="optradio">Dependiente</label>
+                <label class="radio-inline"><input type="radio" th:field="*{tipo}" th:value="Independiente" name="optradio">Independiente</label></tr>
+            </td>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Calcular" class="btn btn-primary"/>
+                    <input type="reset" value="Cancelar" class="btn btn-danger"/></td>
+                <td></td>
+            </tr>
+        </table>
+
+
+    </form>
+    <br/>
+    <a href="/sueldo/list">Listar Proyecciones</a>
+</div>
+</body>
+</html>
